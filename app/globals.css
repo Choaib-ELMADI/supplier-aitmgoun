@@ -1,0 +1,25 @@
+:root {
+    --black__clr:        rgb(0, 0, 0);
+    --black__clr__soft:  rgb(31, 31, 31);
+
+    --white__clr:        rgb(237, 237, 237);
+    --white__clr__soft:  rgb(145, 145, 145);
+
+    --blue__clr:         rgb(0, 112, 243);
+    --blue__clr__soft:   rgb(30, 49, 79);
+    --blue__clr__trs:    rgb(96, 168, 232);
+    
+    --gray__clr:         rgb(42, 40, 40);
+    --gray__clr__soft:   rgb(76, 76, 76);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--black__clr);
+    color: var(--white__clr);
+}

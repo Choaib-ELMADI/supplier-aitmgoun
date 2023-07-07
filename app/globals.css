@@ -3,14 +3,50 @@
     --black__clr__soft:  rgb(31, 31, 31);
 
     --white__clr:        rgb(237, 237, 237);
-    --white__clr__soft:  rgb(145, 145, 145);
+    --white__clr__soft:  rgb(159, 159, 159);
 
     --blue__clr:         rgb(0, 112, 243);
     --blue__clr__soft:   rgb(30, 49, 79);
     --blue__clr__trs:    rgb(96, 168, 232);
+
+    --purple__clr:       rgb(139, 76, 193);
+    --purple__clr__trs:  rgba(138, 76, 193, .6);
     
     --gray__clr:         rgb(42, 40, 40);
     --gray__clr__soft:   rgb(76, 76, 76);
+    --gray__clr__trs:    rgba(42, 40, 40, .5);
+
+    --transition:        .3s;
+    --border__radius:    10px;
+
+    --heading:           36px;
+    --verylarge__size:   30px;
+    --large__size:       24px;
+    --medium__size:      20px;
+    --main__size:        16px;
+    --small__size:       14px;
+    --smaller__size:     13px;
+}
+
+@media screen and (width <= 1000px) {
+    :root {
+        --heading:           33px;
+        --verylarge__size:   27px;
+        --large__size:       22px;
+        --medium__size:      18px;
+        --main__size:        15px;
+        --small__size:       13px;
+        --smaller__size:     12px;
+    }
+}
+
+@media screen and (width <= 700px) {
+    :root {
+        --heading:           30px;
+        --verylarge__size:   25px;
+        --large__size:       20px;
+        --medium__size:      17px;
+    }
 }
 
 * {
@@ -22,4 +58,41 @@
 body {
     background: var(--black__clr);
     color: var(--white__clr);
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background: var(--gray__clr__trs);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background: var(--gray__clr);
+}
+
+.main-button {
+    width: max-content;
+    padding: .75rem 1.5rem;
+    border-radius: var(--border__radius);
+    font-size: calc(var(--medium__size) - 2px);
+    border: 0;
+    outline: none;
+    background: var(--blue__clr);
+    box-shadow: 4px 4px 1px 1px var(--gray__clr__soft);
+    transition: var(--transition);
+    cursor: pointer;
+
+    &:active {
+        transform: translate(3px, 3px);
+        box-shadow: .5px .5px 0 0 var(--gray__clr__soft);
+    }
+
+    &:disabled {
+        transform: translate(3px, 3px);
+        box-shadow: .5px .5px 0 0 var(--gray__clr__soft);
+        opacity: .6;
+        cursor: not-allowed;
+        color: var(--white__clr);
+    }
 }

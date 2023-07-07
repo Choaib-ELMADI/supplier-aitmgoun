@@ -15,17 +15,20 @@ interface ProductProps {
 export default function HeroProduct({ product }: ProductProps) {
     return (
         <div className={ styles.hero_product }>
-            <div className={ styles.hero_image_wrapper }>
+            <Link 
+                className={ styles.hero_image_wrapper }
+                href={ `/products/${ product.id }` }
+            >
                 <Image 
                     src={ product.imageUrl }
                     alt={ product.title }
-                    width={ 800 }
-                    height={ 500 }
+                    width={ 1000 }
+                    height={ 600 }
                     draggable='false'
                     priority
                     className={ styles.hero_image }
                 />
-            </div>
+            </Link>
             <div className={ styles.hero_info }>
                 <h2 className={ styles.hero_info_category }>Sport Trainers Collection</h2>
                 <h1 className={ styles.hero_info_title }>{ product.title }</h1>

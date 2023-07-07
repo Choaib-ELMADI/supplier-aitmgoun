@@ -3,3 +3,12 @@
     justify-content: space-between;
     padding: 0 2rem;
 }
+
+.navbar_logo {
+    color: var(--white__clr);
+    transition: var(--transition);
+
+    &:hover {
+        color: var(--blue__clr);
+    }
+}

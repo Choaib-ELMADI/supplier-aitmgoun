@@ -7,7 +7,12 @@ import styles from '@/styles/navbar.module.scss';
 export default function Navbar() {
     return (
         <div className={ styles.navbar }>
-            <h2>Supplier</h2>
+            <Link 
+                href='/'
+                className={ styles.navbar_logo }
+            >
+                <h2>Supplier</h2>
+            </Link>
             <Link href='/add-product'>Add</Link>
         </div>
     );

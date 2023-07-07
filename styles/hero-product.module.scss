@@ -45,10 +45,12 @@
 
 .hero_info_category {
     font-size: var(--verylarge__size);
+    text-transform: capitalize;
 }
 
 .hero_info_title {
     font-size: var(--heading);
+    text-transform: capitalize;
 }
 .hero_info_desc {
     color: var(--gray__clr__soft);

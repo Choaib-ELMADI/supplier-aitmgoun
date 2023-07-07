@@ -90,6 +90,10 @@ body {
     transition: var(--transition);
     cursor: pointer;
 
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
     &:active {
         transform: translate(3px, 3px);
         box-shadow: .5px .5px 0 0 var(--gray__clr__soft);

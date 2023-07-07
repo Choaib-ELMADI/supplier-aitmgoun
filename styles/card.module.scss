@@ -35,7 +35,6 @@
 
     width: 12px;
     height: 12px;
-    background: var(--blue__clr);
     border-radius: 50%;
 }
 .image {
@@ -62,7 +61,6 @@
 }
 
 .product_price {
-    color: var(--blue__clr);
     margin-top: auto;
 }
 
@@ -71,7 +69,6 @@
     padding: .75rem;
     border: 0;
     outline: none;
-    background: var(--blue__clr);
     color: var(--white__clr);
     font-size: var(--small__size);
     border-bottom-left-radius: var(--border__radius);

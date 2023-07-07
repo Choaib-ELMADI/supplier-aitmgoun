@@ -15,7 +15,10 @@ export default function ProductCard({ product }: ProductProps) {
         <div className={ styles.card_wrapper }>
             <div className={ styles.product_info }>
                 <div className={ styles.product_image }>
-                    <div className={ styles.dot } />
+                    <div 
+                        className={ styles.dot }
+                        style={{ background: product.color }}
+                    />
                     <Image 
                         src={ product.imageUrl }
                         alt={ product.title }
@@ -27,10 +30,20 @@ export default function ProductCard({ product }: ProductProps) {
                 </div>
                 <h3 className={ styles.product_title }>{ product.title }</h3>
                 <p className={ styles.product_desc }>{ product.description }</p>
-                <h2 className={ styles.product_price }>{ product.price }DH</h2>
+                <h2 
+                    className={ styles.product_price }
+                    style={{ color: product.color }}
+                >
+                    { product.price }DH
+                </h2>
             </div>
 
-            <button className={ styles.add_to_cart }>Add to cart</button>
+            <button 
+                className={ styles.add_to_cart }
+                style={{ background: product.color }}
+            >
+                Add to cart
+            </button>
         </div>
     );
 };

@@ -13,13 +13,14 @@ async function addProduct(formData: FormData) {
     const description = formData.get('description')?.toString();
     const imageUrl = formData.get('imageUrl')?.toString();
     const price = Number(formData.get('price') || 0);
+    const color = formData.get('color')?.toString();
 
-    if (!title || !description || !imageUrl || !price) {
+    if (!title || !description || !imageUrl || !price || !color) {
         throw Error('Missing required fields');
     }
 
     await prisma.product.create({
-        data: { title, description, imageUrl, price }
+        data: { title, description, imageUrl, price, color }
     });
 
     redirect('/');
@@ -66,6 +67,12 @@ export default function AddProductPage() {
                     type='number'
                     name='price'
                     placeholder='0.00 $'
+                    required
+                />
+                <input 
+                    type='text'
+                    name='color'
+                    placeholder='Brand Color: #f4hgdj'
                     required
                 />
 

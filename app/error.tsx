@@ -9,12 +9,7 @@ export default function ErrorPage({ error, reset }: { error: Error, reset: () =>
     return (
         <div className={ styles.error_page }>
             <h1>An error occured</h1>
-            <p 
-                style={{ 
-                    color: 'red',
-                    marginTop: '2rem'
-                }}
-            >
+            <p className={ styles.error_message }>
                 { error.message }
             </p>
             <p

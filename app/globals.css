@@ -14,10 +14,14 @@
     
     --gray__clr:         rgb(42, 40, 40);
     --gray__clr__soft:   rgb(76, 76, 76);
-    --gray__clr__trs:    rgba(42, 40, 40, .5);
+    --gray__clr__trs:    rgba(42, 40, 40, .3);
 
     --transition:        .3s;
     --border__radius:    10px;
+
+    /* --box__shadow:       rgba(171, 171, 186, 0.25) 0px 30px 60px -20px, 
+                        rgba(86, 83, 83, 0.3) 0px 30px 60px -30px; */
+    --box__shadow: none;
 
     --heading:           36px;
     --verylarge__size:   30px;
@@ -105,5 +109,27 @@ body {
         opacity: .6;
         cursor: not-allowed;
         color: var(--white__clr);
+    }
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 1rem;
+    
+    @media screen and (width < 1800px) {
+        grid-template-columns: repeat(5, 1fr);        
+    }
+    @media screen and (width < 1500px) {
+        grid-template-columns: repeat(4, 1fr);        
+    }
+    @media screen and (width < 1200px) {
+        grid-template-columns: repeat(3, 1fr);        
+    }
+    @media screen and (width < 900px) {
+        grid-template-columns: repeat(2, 1fr);        
+    }
+    @media screen and (width < 640px) {
+        grid-template-columns: repeat(1, 1fr);        
     }
 }

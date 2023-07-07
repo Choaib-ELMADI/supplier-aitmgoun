@@ -85,8 +85,4 @@
 
 .button {
     margin-top: calc(2rem - .75rem);
-
-    @media screen and (width <= 500px) {
-        width: 100% !important;
-    }
 }

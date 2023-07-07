@@ -8,11 +8,12 @@ import Spinner from "./Spinner";
 type ButtonProps = {
     children: React.ReactNode,
     className?: string,
+    handleClick?: () => void
 } & ComponentProps<'button'>
 
 
 
-export default function Button({ children, className='', ...props }: ButtonProps) {
+export default function Button({ children, className='', handleClick, ...props }: ButtonProps) {
     const { pending } = useFormStatus();
 
     return (
@@ -20,6 +21,7 @@ export default function Button({ children, className='', ...props }: ButtonProps
             { ...props }
             className={ `${ className } main-button` }
             disabled={ pending }
+            onClick={ handleClick }
         >
             { children }
             { pending && ( <Spinner /> )}

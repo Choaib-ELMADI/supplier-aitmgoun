@@ -1,6 +1,6 @@
-import Link from 'next/link';
-
 import ProductCard from "@/components/ProductCard";
+import HeroProduct from '@/components/HeroProduct';
+import Navbar from "@/components/Navbar";
 import { prisma } from "@/lib/db/prisma";
 import styles from "./page.module.scss";
 
@@ -19,15 +19,11 @@ export default async function HomePage() {
 
     return (
         <div className={ styles.home }>
-            <h1>Home Page</h1>
-            <Link
-                href='/add-product'
-            >
-                Add Product
-            </Link>
+            <Navbar />
+            <HeroProduct product={ products[0] } />
             <div className={ `main-grid` }>
                 {
-                    products.map((product) => (
+                    products.slice(1).map((product) => (
                         <ProductCard 
                             key={ product.id }
                             product={ product }

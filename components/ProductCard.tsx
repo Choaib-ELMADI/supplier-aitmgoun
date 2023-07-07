@@ -52,8 +52,8 @@ export default function ProductCard({ product }: ProductProps) {
                     className={ styles.product_price }
                     style={{ color: product.color }}
                 >
-                    { product.price }.00
-                    <small> DH</small>
+                    { product.price.toFixed(0) }
+                    <small>.00 DH</small>
                 </h2>
             </div>
 

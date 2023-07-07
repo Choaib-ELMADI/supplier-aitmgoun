@@ -116,6 +116,7 @@ body {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-gap: 1rem;
+    padding: 0 2rem;
     
     @media screen and (width < 1800px) {
         grid-template-columns: repeat(5, 1fr);        

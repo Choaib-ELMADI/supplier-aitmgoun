@@ -2,7 +2,7 @@
     background: var(--white__clr);
     box-shadow: var(--box__shadow);
     color: var(--black__clr);
-    border-radius: var(--border__radius);
+    border-radius: calc(var(--border__radius) / 2);
 
     display: flex;
     flex-direction: column;
@@ -17,6 +17,23 @@
 
     padding: 3rem 1rem 1rem 1rem;
     text-align: center;
+}
+
+.product_link {
+    span {
+        position: absolute;
+        bottom: .5rem;
+        right: .5rem;
+        z-index: 10;
+
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        color: var(--white__clr);
+
+        display: grid;
+        place-items: center;
+    }
 }
 
 .product_image {
@@ -62,6 +79,10 @@
 
 .product_price {
     margin-top: auto;
+
+    small {
+        font-size: var(--small__size);
+    }
 }
 
 .add_to_cart {
@@ -71,8 +92,8 @@
     outline: none;
     color: var(--white__clr);
     font-size: var(--small__size);
-    border-bottom-left-radius: var(--border__radius);
-    border-bottom-right-radius: var(--border__radius);
+    border-bottom-left-radius: calc(var(--border__radius) / 2);
+    border-bottom-right-radius: calc(var(--border__radius) / 2);
     text-transform: uppercase;
     margin-top: auto;
     cursor: pointer;

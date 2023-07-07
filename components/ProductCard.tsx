@@ -1,6 +1,7 @@
 import { Product } from '@prisma/client';
 import Image from 'next/image';
 import Link from 'next/link';
+import { HiLink } from 'react-icons/hi';
 
 import styles from '@/styles/card.module.scss';
 
@@ -19,14 +20,24 @@ export default function ProductCard({ product }: ProductProps) {
                         className={ styles.dot }
                         style={{ background: product.color }}
                     />
-                    <Image 
-                        src={ product.imageUrl }
-                        alt={ product.title }
-                        width={ 155 }
-                        height={ 170 }
-                        draggable='false'
-                        className={ styles.image }
-                    />
+                    <Link 
+                        href={ `/products/${ product.id }` }
+                        className={ styles.product_link }
+                    >
+                        <Image 
+                            src={ product.imageUrl }
+                            alt={ product.title }
+                            width={ 155 }
+                            height={ 170 }
+                            draggable='false'
+                            className={ styles.image }
+                        />
+                        <span
+                            style={{ background: product.color }}
+                        >
+                            <HiLink />
+                        </span>
+                    </Link>
                 </div>
                 <h3 className={ styles.product_title }>{ product.title }</h3>
                 <p className={ styles.product_desc }>{ product.description }</p>
@@ -34,7 +45,8 @@ export default function ProductCard({ product }: ProductProps) {
                     className={ styles.product_price }
                     style={{ color: product.color }}
                 >
-                    { product.price }DH
+                    { product.price }.00
+                    <small> DH</small>
                 </h2>
             </div>
 

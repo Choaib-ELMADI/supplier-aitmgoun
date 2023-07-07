@@ -22,7 +22,7 @@
     --heading:           36px;
     --verylarge__size:   30px;
     --large__size:       24px;
-    --medium__size:      20px;
+    --medium__size:      18px;
     --main__size:        16px;
     --small__size:       14px;
     --smaller__size:     13px;
@@ -46,6 +46,13 @@
         --verylarge__size:   25px;
         --large__size:       20px;
         --medium__size:      17px;
+    }
+}
+
+@media screen and (width <= 500px) {
+    :root {
+        --heading:           27px;
+        --verylarge__size:   23px;
     }
 }
 
@@ -75,7 +82,7 @@ body {
     width: max-content;
     padding: .75rem 1.5rem;
     border-radius: var(--border__radius);
-    font-size: calc(var(--medium__size) - 2px);
+    font-size: var(--medium__size);
     border: 0;
     outline: none;
     background: var(--blue__clr);

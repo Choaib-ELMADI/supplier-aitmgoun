@@ -8,17 +8,17 @@ import { Metadata } from 'next';
 
 
 export const metadata: Metadata = {
-    title: 'Aitmgoun Supplier',
-    description: 'Aitmgoun Grocery Store',
+    title: 'Supplier',
+    description: 'Aitmgoun Grocery Store Supplier',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
             <body className={ inter.className }>
-                <div className={ styles.body__container }>
+                <main className={ styles.body__container }>
                     { children }
-                </div>
+                </main>
             </body>
         </html>
     );

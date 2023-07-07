@@ -44,7 +44,7 @@ export default function AddProduct() {
         <div className={ styles.add_product_container }>
             <h1 className={ styles.welcoming }>👋 Welcome to Supplier,</h1>
             <h1 className={ styles.add_product_title }>
-                Add Product
+                Supply Products
                 <AiOutlineAppstoreAdd size={ 28 } />
             </h1>
 
@@ -68,7 +68,7 @@ export default function AddProduct() {
                     rows={ 3 }
                     onChange={ handleChange }
                     required
-                ></textarea>
+                />
                 <input 
                     type='url'
                     name='imageUrl'
@@ -80,7 +80,7 @@ export default function AddProduct() {
                 <input 
                     type='number'
                     name='price'
-                    placeholder='Price'
+                    placeholder='0.00 $'
                     value={ form.price }
                     onChange={ handleChange }
                     required

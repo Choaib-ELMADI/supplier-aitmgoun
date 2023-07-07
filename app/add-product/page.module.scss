@@ -21,7 +21,7 @@
     gap: .75rem;
     
     width: max-content;
-    font-size: var(--medium__size);
+    font-size: calc(var(--medium__size) - 2px);
     padding: .5rem;
     color: var(--blue__clr);
     position: relative;
@@ -56,7 +56,7 @@
 
     input, textarea {
         padding: .5rem;
-        border: 0;
+        border: 1px solid transparent;
         outline: none;
         background: var(--gray__clr__trs);
         resize: none;
@@ -67,6 +67,18 @@
         
         &::placeholder {
             color: var(--white__clr__soft);
+        }
+
+        &:is(:focus, :not(:placeholder-shown)) {
+            color: var(--blue__clr);
+
+            &:focus {
+                border: 1px solid currentColor;
+            }
+
+            &::placeholder {
+                color: currentColor;
+            }
         }
     }
 }

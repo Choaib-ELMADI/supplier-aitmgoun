@@ -12,6 +12,8 @@ interface ProductProps {
 
 
 export default function ProductCard({ product }: ProductProps) {
+    const isNew = Date.now() - new Date(product.createdAt).getTime() < 1000 * 60 * 60 * 24 * 4;
+
     return (
         <div className={ styles.card_wrapper }>
             <div className={ styles.product_info }>
@@ -39,7 +41,12 @@ export default function ProductCard({ product }: ProductProps) {
                         </span>
                     </Link>
                 </div>
-                <h3 className={ styles.product_title }>{ product.title }</h3>
+                <h3 className={ styles.product_title }>
+                    { product.title }
+                    { isNew && (
+                        <span>New</span>
+                    )}
+                </h3>
                 <p className={ styles.product_desc }>{ product.description }</p>
                 <h2 
                     className={ styles.product_price }

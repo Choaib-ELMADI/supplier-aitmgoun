@@ -6,9 +6,11 @@
 
 .navbar_logo {
     color: var(--white__clr);
-    transition: var(--transition);
+    text-decoration: underline var(--blue__clr);
 
-    &:hover {
-        color: var(--blue__clr);
+    h2 {
+        &::first-letter {
+            color: var(--blue__clr);
+        }
     }
 }

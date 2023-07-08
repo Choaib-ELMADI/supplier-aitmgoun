@@ -9,8 +9,8 @@ import './globals.css';
 
 
 export const metadata: Metadata = {
-    title: 'Supplier',
-    description: 'Aitmgoun Grocery Store Supplier',
+    title: 'Supplier | Aitmgoun',
+    description: 'Supplier Aitmgoun Grocery Store',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

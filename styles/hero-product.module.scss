@@ -87,6 +87,25 @@
     gap: 3.5rem;
 
     margin-top: .75rem;
+
+    button {
+        background: transparent !important;
+        height: 16px !important;
+        font-size: var(--main__size) !important;
+        transition: var(--transition) !important;
+
+        &:hover {
+            color: var(--blue__clr) !important;
+        }
+
+        &:disabled {
+            color: var(--blue__clr) !important;
+        }
+    }
+
+    label {
+        display: none;
+    }
 }
 .hero_action {
     text-decoration: none;

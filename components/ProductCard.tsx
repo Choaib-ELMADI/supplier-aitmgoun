@@ -62,7 +62,7 @@ export default function ProductCard({ product }: ProductProps) {
             <AddToCartButton 
                 productId={ product.id }
                 incrementProductQuantity={ incrementProductQuantity } 
-                showLoading={ false }
+                showLoading={ true }
                 color={ product.color }
             />
         </div>

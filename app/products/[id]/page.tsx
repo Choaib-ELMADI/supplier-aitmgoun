@@ -102,14 +102,31 @@ export default async function ProductPage({ params: { id } }: ProductPageProps) 
                 </div>
                 <div className={ styles.product_pricing }>
                     <div className={ styles.cart_details }>
-                        <h3>Total items: { cart?.size }</h3>
-                        <h3>Total price : { cart?.subtotal }.00 Dh</h3>
+                        <div>
+                            <p>Total Items</p>
+                            <h2>{ cart?.size }</h2>
+                        </div>
+                        <div>
+                            <p>Total Price</p>
+                            <h2>
+                                { cart?.subtotal.toFixed(0) }
+                                <small>.00 Dh</small>
+                            </h2>
+                        </div>
                     </div>
                     <AddToCartButton 
                         productId={ product.id }
                         incrementProductQuantity={ incrementProductQuantity } 
                         showLoading={ true }
                     />
+                    <div className={ styles.product_pricing_warn }>
+                        <span>i</span>
+                        <p>
+                            Order this product immediately, 
+                            will soon run out and this stock 
+                            will no longer be available
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

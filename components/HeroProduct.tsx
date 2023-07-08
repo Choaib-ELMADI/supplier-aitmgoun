@@ -30,7 +30,7 @@ export default function HeroProduct({ product }: ProductProps) {
                 />
             </Link>
             <div className={ styles.hero_info }>
-                <h2 className={ styles.hero_info_category }>Sport Trainers Collection</h2>
+                <h2 className={ styles.hero_info_category }>{ `${ product.collection } Collection` }</h2>
                 <h1 className={ styles.hero_info_title }>{ product.title }</h1>
                 <p className={ styles.hero_info_desc }>{ product.description }</p>
                 <div className={ styles.hero_prices }>

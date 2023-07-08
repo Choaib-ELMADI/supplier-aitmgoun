@@ -10,17 +10,18 @@ async function addProduct(formData: FormData) {
     'use server';
 
     const title = formData.get('title')?.toString();
+    const collection = formData.get('collection')?.toString();
     const description = formData.get('description')?.toString();
     const imageUrl = formData.get('imageUrl')?.toString();
     const price = Number(formData.get('price') || 0);
     const color = formData.get('color')?.toString();
 
-    if (!title || !description || !imageUrl || !price || !color) {
+    if (!title || !collection || !description || !imageUrl || !price || !color) {
         throw Error('Missing required fields');
     }
 
     await prisma.product.create({
-        data: { title, description, imageUrl, price, color }
+        data: { title, description, imageUrl, price, color, collection }
     });
 
     redirect('/');
@@ -49,6 +50,12 @@ export default function AddProductPage() {
                     type='text'
                     name='title'
                     placeholder='Title'
+                    required
+                />
+                <input 
+                    type='text'
+                    name='collection'
+                    placeholder='Collection'
                     required
                 />
                 <textarea

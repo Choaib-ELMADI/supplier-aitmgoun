@@ -31,12 +31,33 @@
         user-select: none;
     }
 
+    h2 {
+        position: absolute;
+        right: 1rem;
+        bottom: 1rem;
+
+        background: var(--gray__clr);
+        padding: .25rem .75rem;
+        border-radius: 20px;
+        font-size: var(--large__size);
+        user-select: none;
+    
+        small {
+            font-size: var(--small__size);
+        }
+    }
+
     @media screen and (width <= 800px) {
         width: 100%;
 
         span {
             top: .5rem;
             left: .5rem;
+        }
+
+        h2 {
+            right: .5rem;
+            bottom: .5rem;
         }
     }
 }

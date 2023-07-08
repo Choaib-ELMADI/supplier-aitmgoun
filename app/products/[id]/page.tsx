@@ -56,6 +56,10 @@ export default async function ProductPage({ params: { id } }: ProductPageProps) 
                             color: product.color
                         }}>New</span>
                     )}
+                    <h2>
+                        { product.price.toFixed(0) }
+                        <small>.00 Dh</small>
+                    </h2>
                 </div>
                 <div className={ styles.small_images_container }>
                     <div className={ styles.small_image_container }>

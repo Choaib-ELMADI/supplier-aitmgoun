@@ -1,8 +1,10 @@
 import { Product } from '@prisma/client';
+import { HiLink } from 'react-icons/hi';
 import Image from 'next/image';
 import Link from 'next/link';
-import { HiLink } from 'react-icons/hi';
 
+import { incrementProductQuantity } from '@/app/products/[id]/actions';
+import AddToCartButton from '@/app/products/[id]/AddToCartButton';
 import styles from '@/styles/card.module.scss';
 
 interface ProductProps {
@@ -57,12 +59,12 @@ export default function ProductCard({ product }: ProductProps) {
                 </h2>
             </div>
 
-            <button 
-                className={ styles.add_to_cart }
-                style={{ background: product.color }}
-            >
-                Add to cart
-            </button>
+            <AddToCartButton 
+                productId={ product.id }
+                incrementProductQuantity={ incrementProductQuantity } 
+                showLoading={ false }
+                color={ product.color }
+            />
         </div>
     );
 };

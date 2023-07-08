@@ -4,7 +4,10 @@ import Image from 'next/image';
 import { cache } from "react"; 
 
 import styles from '@/styles/product-page.module.scss';
+import { incrementProductQuantity } from "./actions";
+import AddToCartButton from "./AddToCartButton";
 import { prisma } from "@/lib/db/prisma";
+import { getCart } from "@/lib/db/cart";
 
 interface ProductPageProps {
     params: {
@@ -37,6 +40,7 @@ export async function generateMetadata({ params: { id } }: ProductPageProps): Pr
 export default async function ProductPage({ params: { id } }: ProductPageProps) {
     const product = await getProduct(id);
     const isNew = Date.now() - new Date(product.createdAt).getTime() < 1000 * 60 * 60 * 24 * 4;
+    const cart = await getCart();
 
     return (
         <div className={ styles.product_details_wrapper }>
@@ -84,15 +88,28 @@ export default async function ProductPage({ params: { id } }: ProductPageProps) 
                     </div>
                 </div>
             </div>
-            <div className={ styles.product_info }>
-                <div className={ styles.product_info_heading }>
-                    <div style={{ background: product.color }} />
-                    <h2>Overview</h2>
+            <div className={ styles.product_info_wrapper }>
+                <div className={ styles.product_info }>
+                    <div className={ styles.product_info_heading }>
+                        <div style={{ background: product.color }} />
+                        <h2>Overview</h2>
+                    </div>
+                    <p>{ product.description }</p>
+                    <div className={ styles.product_info_heading }>
+                        <div style={{ background: product.color }} />
+                        <h2>Ratings & Reviews</h2>
+                    </div>
                 </div>
-                <p>{ product.description }</p>
-                <div className={ styles.product_info_heading }>
-                    <div style={{ background: product.color }} />
-                    <h2>Ratings & Reviews</h2>
+                <div className={ styles.product_pricing }>
+                    <div className={ styles.cart_details }>
+                        <h3>Total items: { cart?.size }</h3>
+                        <h3>Total price : { cart?.subtotal }.00 Dh</h3>
+                    </div>
+                    <AddToCartButton 
+                        productId={ product.id }
+                        incrementProductQuantity={ incrementProductQuantity } 
+                        showLoading={ true }
+                    />
                 </div>
             </div>
         </div>

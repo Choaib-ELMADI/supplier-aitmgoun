@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { AiFillShopping } from 'react-icons/ai';
-import { FaShoppingCart } from 'react-icons/fa';
 
+import { incrementProductQuantity } from '@/app/products/[id]/actions';
+import AddToCartButton from '@/app/products/[id]/AddToCartButton';
 import styles from '@/styles/hero-product.module.scss';
 import { Product } from '@prisma/client';
 
@@ -61,12 +62,11 @@ export default function HeroProduct({ product }: ProductProps) {
                         <AiFillShopping size={ 22 } />
                         View Details
                     </Link>
-                    <button
-                        className={ styles.hero_action }
-                    >
-                        <FaShoppingCart size={ 20 } />
-                        Add to Cart
-                    </button>
+                    <AddToCartButton 
+                        productId={ product.id }
+                        incrementProductQuantity={ incrementProductQuantity }
+                        showLoading={ true }
+                    />
                 </div>
             </div>
         </div>

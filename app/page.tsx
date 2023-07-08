@@ -1,6 +1,5 @@
 import ProductCard from "@/components/ProductCard";
 import HeroProduct from '@/components/HeroProduct';
-import Navbar from "@/components/Navbar";
 import { prisma } from "@/lib/db/prisma";
 import styles from "./page.module.scss";
 
@@ -19,7 +18,6 @@ export default async function HomePage() {
 
     return (
         <div className={ styles.home }>
-            <Navbar />
             <HeroProduct product={ products[0] } />
             <div className={ `main-grid` }>
                 {

@@ -83,7 +83,7 @@
 
 .hero_actions {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     gap: 3.5rem;
 
     margin-top: .75rem;
@@ -100,7 +100,7 @@
     outline: none;
 
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     gap: .75rem;
 
     &:hover {

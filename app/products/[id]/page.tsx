@@ -104,12 +104,12 @@ export default async function ProductPage({ params: { id } }: ProductPageProps) 
                     <div className={ styles.cart_details }>
                         <div>
                             <p>Total Items</p>
-                            <h2>{ cart?.size }</h2>
+                            <h2>{ cart?.size ? cart?.size : 0 }</h2>
                         </div>
                         <div>
                             <p>Total Price</p>
                             <h2>
-                                { cart?.subtotal.toFixed(0) }
+                                { cart?.subtotal ? cart?.subtotal.toFixed(0) : 0 }
                                 <small>.00 Dh</small>
                             </h2>
                         </div>

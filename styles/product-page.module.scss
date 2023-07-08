@@ -65,6 +65,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    background: var(--gray__clr__soft);
 }
 
 .small_images_container {
@@ -96,6 +97,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    background: var(--gray__clr__soft);
 }
 
 .product_info_wrapper {
@@ -148,7 +150,10 @@
     button {
         border-radius: 4px;
         margin: 0 1rem;
-        margin-bottom: .25rem;
+    }
+
+    label {
+        margin-right: 1rem;
     }
 }
 .product_pricing_warn {
@@ -157,6 +162,7 @@
 
     background: #fffbea;
     padding: .5rem 1rem;
+    margin-top: .25rem;
 
     span {
         display: inline-block;

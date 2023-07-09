@@ -31,3 +31,7 @@ export async function incrementProductQuantity(productId: string) {
 
     revalidatePath("/products/[id]");
 };
+
+export async function deleteProduct(productId: string) {
+    
+};

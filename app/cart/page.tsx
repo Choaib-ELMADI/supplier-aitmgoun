@@ -15,7 +15,7 @@ export default async function UserCart() {
 
     return (
         <div className={ styles.cart_wrapper }>
-            { !cart?.items.length || cart?.items.length < 0 ? 
+            { !cart || cart?.items.length < 0 ? 
                 <>
                     <h2>Your shopping cart is empty</h2>
                 </> :

@@ -21,9 +21,14 @@
     background: var(--gray__clr__trs);
     border-radius: 10px;
     transition: var(--transition);
+    position: relative;
 
     &:hover {
         background: rgba(42, 40, 40, .4);
+    }
+
+    @media screen and (width <= 400px) {
+        flex-direction: column;
     }
 }
 
@@ -39,6 +44,12 @@
     @media screen and (width <= 500px) {
         width: 160px;
         height: 160px;
+    }
+
+    @media screen and (width <= 400px) {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
     }
 }
 
@@ -62,4 +73,23 @@
     label {
         display: none;
     }
+}
+
+.delete_btn {
+    font-size: var(--main__size);
+    border: 0;
+    outline: none;
+    background: rgba(255, 0, 0, .3);
+    color: red;
+    height: 45px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    position: absolute;
+    right: .5rem;
+    bottom: .5rem;
 }

@@ -14,7 +14,12 @@ interface AddToCartButtonProps {
 
 
 
-export default function AddToCartButton({ productId, incrementProductQuantity, showLoading, color }: AddToCartButtonProps) {
+export default function AddToCartButton({ 
+    productId, 
+    incrementProductQuantity, 
+    showLoading, 
+    color
+}: AddToCartButtonProps) {
     const [isPending, startTransition] = useTransition();
     const [success, setSuccess] = useState(false);
 

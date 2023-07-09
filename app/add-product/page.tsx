@@ -2,7 +2,7 @@ import { Metadata } from 'next/types';
 import { redirect } from 'next/navigation';
 import { AiOutlineAppstoreAdd } from 'react-icons/ai';
 
-import styles from './page.module.scss';
+import styles from '@/styles/add-product.module.scss';
 import Button from '@/components/Button';
 import { prisma } from '@/lib/db/prisma';
 

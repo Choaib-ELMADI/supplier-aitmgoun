@@ -1,0 +1,10 @@
+.loading_page {
+    width: 100%;
+    min-height: 100vh;
+    color: var(--blue__clr);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}

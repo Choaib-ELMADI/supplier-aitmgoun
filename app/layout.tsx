@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'], weight: ['400'] });
 import { Metadata } from 'next';
 
+import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import styles from './page.module.scss';
 import './globals.css';
@@ -20,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <main className={ styles.body__container }>
                     <Navbar />
                     { children }
-                    <h2>Footer</h2>
+                    <Footer />
                 </main>
             </body>
         </html>

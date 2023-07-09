@@ -64,6 +64,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -114,13 +115,10 @@ body {
 
 .main-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-gap: 1rem;
     padding: 0 2rem;
     
-    @media screen and (width < 1800px) {
-        grid-template-columns: repeat(5, 1fr);        
-    }
     @media screen and (width < 1500px) {
         grid-template-columns: repeat(4, 1fr);        
     }
@@ -132,5 +130,9 @@ body {
     }
     @media screen and (width < 640px) {
         grid-template-columns: repeat(1, 1fr);        
+    }
+
+    @media screen and (width <= 400px) {
+        padding: 0 1rem;
     }
 }

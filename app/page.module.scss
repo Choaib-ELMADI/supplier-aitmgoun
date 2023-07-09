@@ -24,3 +24,14 @@
     text-align: center;
     word-break: break-word;
 }
+
+.no_products {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--gray__clr__soft);
+    margin-block: 7.5rem;
+}

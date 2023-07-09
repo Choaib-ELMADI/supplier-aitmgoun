@@ -1,3 +1,5 @@
+import { CgTrashEmpty } from 'react-icons/cg';
+
 import ProductCard from "@/components/ProductCard";
 import HeroProduct from '@/components/HeroProduct';
 import { prisma } from "@/lib/db/prisma";
@@ -12,7 +14,10 @@ export default async function HomePage() {
 
     if (products.length < 1) {
         return (
-            <h1>No products yet</h1>
+            <div className={ styles.no_products }>
+                <CgTrashEmpty size={ 100 } />
+                <h2 style={{ fontSize: 'var(--large__size)' }}>No products yet</h2>
+            </div>
         );
     }
 

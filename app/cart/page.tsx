@@ -1,4 +1,5 @@
 import { Metadata } from 'next/types';
+import { CgTrashEmpty } from 'react-icons/cg';
 
 import CartProduct from '@/components/CartProduct';
 import styles from '@/styles/cart.module.scss';
@@ -15,10 +16,11 @@ export default async function UserCart() {
 
     return (
         <div className={ styles.cart_wrapper }>
-            { !cart || cart?.items.length < 0 ? 
-                <>
-                    <h2>Your shopping cart is empty</h2>
-                </> :
+            { !cart || !cart?.items.length ? 
+                <div className={ styles.empty_cart }>
+                    <CgTrashEmpty size={ 100 } />
+                    <h2 style={{ fontSize: 'var(--large__size)' }}>Your shopping cart is empty</h2>
+                </div> :
                 <>
                     <h2>Shopping Cart</h2>
                     {
@@ -30,6 +32,21 @@ export default async function UserCart() {
                             />
                         ))
                     }
+                    <button 
+                        className='main-button'
+                        style={{ 
+                            marginTop: '2rem', 
+                            width: 'min(100%, 400px)',
+                            justifyContent: 'center',
+                            paddingBlock: '1rem',
+                            marginInline: 'auto',
+                            fontWeight: 'bold'
+                        }}
+                    >
+                        Check out 
+                        {' '}
+                        { (cart?.subtotal || 0).toFixed(2) } Dh
+                    </button>
                 </>
             }
         </div>

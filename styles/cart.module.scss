@@ -93,3 +93,14 @@
     right: .5rem;
     bottom: .5rem;
 }
+
+.empty_cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    margin-block: 4rem;
+    color: var(--gray__clr__soft);
+}

@@ -35,8 +35,9 @@ export default function ShoppingCartButton({ cart }: ShoppingCartButtonProps) {
                         <small>.00 Dh</small>
                     </h2>
                     <Link 
-                        href='/cart'
+                        href='/'
                         className={ styles.cart_link }
+                        onClick={ () => setVueCart(false) }
                     >
                         Edit Cart
                     </Link>

@@ -133,7 +133,8 @@
         top: 2.75rem;
         left: 50%;
         transform: translateX(-50%);
-        background: rgba(255, 255, 255, .1);
+        background: rgba(0, 0, 0, .8);
+        border: 1px solid var(--blue__clr);
         backdrop-filter: blur(8px);
         padding: .5rem;
         border-radius: 10px;
@@ -174,7 +175,7 @@
     padding: .5rem;
     text-decoration: none;
     font-size: var(--main__size);
-    background: var(--purple__clr);
+    background: var(--blue__clr);
     color: var(--white__clr);
     border-radius: 10px;
     text-align: center;

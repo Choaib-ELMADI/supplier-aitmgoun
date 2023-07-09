@@ -39,6 +39,7 @@ export default async function Navbar() {
             </Link>
             <div className={ styles.navbar_search_cart }>
                 <ShoppingCartButton cart={ cart } />
+                <ShoppingCartButton cart={ cart } />
                 <form action={ searchProducts }>
                     <input 
                         type="text"

@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Carter One
+- Font Author: Copyright (c) 2011 by vernon adams. All rights reserved.
+- Font Source: http://fonts.gstatic.com/s/carterone/v17/q5uCsoe5IOB2-pXv9UcNIxR2hYxREMs.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))

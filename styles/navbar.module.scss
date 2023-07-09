@@ -1,6 +1,7 @@
 .navbar {
     display: flex;
     justify-content: space-between;
+    gap: 3rem;
     padding: .5rem .5rem .5rem 1rem;
 
     position: fixed;
@@ -62,8 +63,9 @@
 
     form {
         input {
+            width: 100%;
             padding: .75rem 1rem;
-            border: 1px solid var(--gray__clr);
+            border: 1px solid transparent;
             outline: none;
             background: var(--gray__clr__trs);
             resize: none;

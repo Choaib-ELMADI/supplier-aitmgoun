@@ -5,8 +5,10 @@ import { signIn, signOut } from 'next-auth/react';
 import { Session } from 'next-auth';
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import styles from '@/styles/navbar.module.scss';
+import { env } from '@/lib/env';
 
 interface UserMenuButtonProps {
     session: Session | null,
@@ -43,11 +45,14 @@ export default function UserMenuButton({ session }: UserMenuButtonProps) {
                             <Image 
                                 src={ user?.image || '/profile-image-placeholder.png' }
                                 alt='user profile'
-                                width={ 120 }
-                                height={ 120 }
+                                width={ 100 }
+                                height={ 100 }
                                 draggable='false'
                             />
                             <h2>{ user?.name || 'User' }</h2>
+
+                            <Link href='/add-product'>Add Product</Link>
+
                             <button 
                                 className='main-button'
                                 onClick={ () => signOut({ callbackUrl: '/' }) }

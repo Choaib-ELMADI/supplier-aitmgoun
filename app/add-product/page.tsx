@@ -1,13 +1,23 @@
-import { Metadata } from 'next/types';
-import { redirect } from 'next/navigation';
 import { AiOutlineAppstoreAdd } from 'react-icons/ai';
+import { getServerSession } from 'next-auth';
+import { redirect } from 'next/navigation';
+import { Metadata } from 'next/types';
 
+import { authOptions } from '../api/auth/[...nextauth]/route';
 import styles from '@/styles/add-product.module.scss';
 import Button from '@/components/Button';
 import { prisma } from '@/lib/db/prisma';
+import { env } from '@/lib/env';
 
 async function addProduct(formData: FormData) {
     'use server';
+
+    const session = await getServerSession(authOptions);
+
+    if (!session || (session?.user?.email !== env.SUPPLIER_ADMIN_EMAIL)) {
+        // redirect('/api/auth/signin?callbackUrl=/add-product');
+        redirect('/');
+    }
 
     const title = formData.get('title')?.toString();
     const collection = formData.get('collection')?.toString();
@@ -33,7 +43,14 @@ export const metadata: Metadata = {
     title: 'Supplier | Add Products',
 };
 
-export default function AddProductPage() {
+export default async function AddProductPage() {
+    const session = await getServerSession(authOptions);
+
+    if (!session || (session?.user?.email !== env.SUPPLIER_ADMIN_EMAIL)) {
+        // redirect('/api/auth/signin?callbackUrl=/add-product');
+        redirect('/');
+    }
+
     return (
         <div className={ styles.add_product_container }>
             <h1 className={ styles.welcoming }>👋 Welcome to Supplier,</h1>

@@ -1,9 +1,12 @@
+import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import ShoppingCartButton from './ShoppingCartButton';
 import styles from '@/styles/navbar.module.scss';
+import UserMenuButton from './UserMenuButton';
 import { getCart } from '@/lib/db/cart';
 
 async function searchProducts(formData: FormData) {
@@ -19,6 +22,7 @@ async function searchProducts(formData: FormData) {
 
 
 export default async function Navbar() {
+    const session = await getServerSession(authOptions);
     const cart = await getCart();
 
     return (
@@ -39,7 +43,6 @@ export default async function Navbar() {
             </Link>
             <div className={ styles.navbar_search_cart }>
                 <ShoppingCartButton cart={ cart } />
-                <ShoppingCartButton cart={ cart } />
                 <form action={ searchProducts }>
                     <input 
                         type="text"
@@ -48,6 +51,7 @@ export default async function Navbar() {
                         required
                     />
                 </form>
+                <UserMenuButton session={ session } />
             </div>
         </div>
     );

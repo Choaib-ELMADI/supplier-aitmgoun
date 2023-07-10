@@ -65,7 +65,7 @@
         input {
             width: 100%;
             padding: .75rem 1rem;
-            border: 1px solid transparent;
+            border: 1px solid currentColor;
             outline: none;
             background: var(--gray__clr__trs);
             resize: none;
@@ -183,4 +183,73 @@
     border-radius: 10px;
     text-align: center;
     margin-top: 1rem;
+}
+
+.user_menu {
+    position: relative;
+
+    span {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background: var(--gray__clr);
+        border-radius: 50%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        @media screen and (width <= 500px) {
+            width: 34px;
+            height: 34px;
+        }
+
+        label {
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+
+            display: grid;
+            place-items: center;
+        }
+    }
+}
+
+.menu_content {
+    position: absolute;
+    top: 3.3rem;
+    right: 0;
+    background: rgba(0, 0, 0, .8);
+    border: 1px solid var(--blue__clr);
+    backdrop-filter: blur(8px);
+    padding: 1rem;
+    border-radius: 10px;
+
+    h2 {
+        white-space: nowrap;
+        font-size: var(--medium__size);
+    }
+
+    h1 {
+        font-size: var(--large__size);
+    }
+
+    img {
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    button {
+        width: 100%;
+        white-space: nowrap;
+        margin-top: 1rem;
+    }
+
+    @media screen and (width <= 500px) {
+        top: 2.9rem;
+    }
 }

@@ -2,7 +2,7 @@ import { cookies } from 'next/dist/client/components/headers';
 import { getServerSession } from 'next-auth';
 
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
-import { Prisma } from '@prisma/client';
+import { CartItem, Prisma } from '@prisma/client';
 import { prisma } from "./prisma";
 
 
@@ -83,4 +83,41 @@ export async function createCart(): Promise<ShoppingCart> {
         size: 0,
         subtotal: 0
     };
+};
+
+export async function mergeAnonymosCartIntoUserCart(userId:string) {
+    const localCartId = cookies().get('localCartId')?.value;
+    
+    const localCart = localCartId ?
+        await prisma.cart.findUnique({
+            where: { id: localCartId },
+            include: { items: true }
+        })
+        : null;
+
+    if (!localCart) return;
+
+    const userCart = await prisma.cart.findFirst({
+        where: { userId },
+        include: { items: true }
+    });
+
+    await prisma.$transaction(async tx => {
+
+    });
+};
+
+function mergeCartItems(...cartItems: CartItem[][]) {
+    return cartItems.reduce((acc, items) => {
+        items.forEach((item) => {
+            const existingItem = acc.find((i) => i.productId === item.productId);
+
+            if (existingItem) {
+                existingItem.quantity += item.quantity;
+            } else {
+                acc.push(item);
+            }
+        });
+        return acc;
+    }, [] as CartItem[]);
 };

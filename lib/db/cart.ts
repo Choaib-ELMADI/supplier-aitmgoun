@@ -103,7 +103,41 @@ export async function mergeAnonymosCartIntoUserCart(userId:string) {
     });
 
     await prisma.$transaction(async tx => {
+        if (userCart) {
+            const mergedCartItems = mergeCartItems(localCart.items, userCart.items);
 
+            await prisma.cartItem.deleteMany({
+                where: { cartId: userCart.id }
+            });
+
+            await prisma.cartItem.createMany({
+                data: mergedCartItems.map((item) => ({
+                    cartId: userCart.id,
+                    productId: item.productId,
+                    quantity: item.quantity
+                }))
+            });
+        } else {
+            await prisma.cart.create({
+                data: { 
+                    userId,
+                    items: {
+                        createMany: {
+                            data: localCart.items.map((item) => ({
+                                productId: item.productId,
+                                quantity: item.quantity
+                            }))
+                        }
+                    }
+                }
+            });
+        }
+
+        await tx.cart.delete({
+            where: { id: localCart.id }
+        });
+
+        cookies().set('localCartId', '');
     });
 };
 

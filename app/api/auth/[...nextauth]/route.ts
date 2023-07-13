@@ -4,6 +4,7 @@ import { Adapter } from "next-auth/adapters";
 import { AuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
 
+import { mergeAnonymosCartIntoUserCart } from "@/lib/db/cart";
 import { prisma } from "@/lib/db/prisma";
 import { env } from "@/lib/env";
 
@@ -23,6 +24,11 @@ export const authOptions: AuthOptions = {
 
             return session;
         },
+    },
+    events: {
+        async signIn({ user }) {
+            await mergeAnonymosCartIntoUserCart(user.id);
+        }
     }
 };
 

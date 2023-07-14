@@ -1,5 +1,5 @@
-import { Metadata } from 'next/types';
 import { CgTrashEmpty } from 'react-icons/cg';
+import { Metadata } from 'next/types';
 
 import CartProduct from '@/components/CartProduct';
 import styles from '@/styles/cart.module.scss';

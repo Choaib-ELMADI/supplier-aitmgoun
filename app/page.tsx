@@ -1,5 +1,6 @@
 import { CgTrashEmpty } from 'react-icons/cg';
 
+import PaginationBar from '@/components/PaginationBar';
 import ProductCard from "@/components/ProductCard";
 import HeroProduct from '@/components/HeroProduct';
 import { prisma } from "@/lib/db/prisma";
@@ -34,6 +35,10 @@ export default async function HomePage() {
                     ))
                 }
             </div>
+            <PaginationBar 
+                currentPage={ 12 } 
+                totalPages={ 100 } 
+            />
         </div>
     );
 };

@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import { BsChevronBarLeft, BsChevronBarRight } from 'react-icons/bs';
+import Link from 'next/link';
 
 import styles from '@/styles/pagination.module.scss';
 
